@@ -18,7 +18,7 @@ router.put('/:id', usuariosPut );
 router.post('/', usuariosPost );
 
 router.delete('/', usuariosDelete );
-
+// comentario de prueba
 router.patch('/', usuariosPatch );
 
 

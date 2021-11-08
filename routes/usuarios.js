@@ -10,6 +10,7 @@ const { usuariosGet,
 const router = Router();
 
 
+// ejemplo de rutas usuarios
 router.get('/', usuariosGet );
 
 router.put('/:id', usuariosPut );

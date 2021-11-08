@@ -1,15 +1,11 @@
 
 const { Router } = require('express');
 
-const { usuariosGet,
-        usuariosPut,
-        usuariosPost,
-        usuariosDelete,
-        usuariosPatch } = require('../controllers/usuarios');
 
 const router = Router();
 
-
+// definición de ruta para usuario
+// con uso de sus controladores
 router.get('/', usuariosGet );
 
 router.put('/:id', usuariosPut );

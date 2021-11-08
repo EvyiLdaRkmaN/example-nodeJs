@@ -1,9 +1,11 @@
-require('dotenv').config();
-const Server = require('./models/server');
+const express = require('express');
+const app = express();
+// llamando configuración
+require("./config");
 
+app.use(require("./routes/usuarios"));
 
-const server = new Server();
-
-
-
-server.listen();
+//starting the server
+app.listen(process.env.PORT, () => {
+    console.log(`Backend server listening on port ${process.env.PORT}`);
+})

@@ -31,7 +31,6 @@ const CarroSchema = Schema({
 
 
 CarroSchema.methods.toJSON = function() {
-    console.log('objecto cart=>', this.toObject());
     const { __v, ...cart  } = this.toObject();
     return cart;
 }

@@ -1,13 +1,13 @@
 
 const { Router } = require('express');
 
-const { crearCart } = require('../../controllers/cart');
+const { crearCart, cartGet } = require('../../controllers/cart');
 
 const router = Router();
 
 
 // ejemplo de rutas usuarios
-// router.get('/', usuariosGet );
+router.get('/', cartGet );
 
 // router.put('/:id', usuariosPut );
 

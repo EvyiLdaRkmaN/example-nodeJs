@@ -3,18 +3,12 @@ const { response, request } = require('express');
 const { Cart } = require('../../models');
 
 
-const cartGet = (req = request, res = response) => {
+const cartGet = async(req, res = response ) => {
+    const { id } = req.query;
+    const cart = await Cart.findById(id);
+    
+    res.json( cart );
 
-    const { q, nombre = 'No name', apikey, page = 1, limit } = req.query;
-
-    res.json({
-        msg: 'get API - controlador',
-        q,
-        nombre,
-        apikey,
-        page,
-        limit
-    });
 }
 
 const cartPost = (req, res = response) => {
@@ -30,8 +24,6 @@ const cartPost = (req, res = response) => {
 
 // nos regresa el carrito solicitado
 const crearCart = async (req, res = response) => {
-
-    // const { id } = req.params;
 
     try {
         const cart = new Cart(req.body);        
@@ -74,4 +66,5 @@ const cartDelete = (req, res = response) => {
 
 module.exports = {
     crearCart,
+    cartGet,
 }

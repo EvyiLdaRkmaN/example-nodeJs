@@ -8,7 +8,6 @@ const cartGet = async(req, res = response ) => {
     const cart = await Cart.findById(id);
     
     res.json( cart );
-
 }
 
 const cartPost = (req, res = response) => {
@@ -39,14 +38,15 @@ const crearCart = async (req, res = response) => {
     }
 }
 
-const cartPut = (req, res = response) => {
+const editCart = async( req, res = response ) => {
 
-    const { id } = req.params;
+    // const { id } = req.params;
+    const {id, conceptos } = req.body;
 
-    res.json({
-        msg: 'put API - usuariosPut',
-        id
-    });
+    const cart = await Cart.updateOne({_id:id}, {$push:{conceptos:conceptos}});
+    
+    res.status(201).json( {message: 'Concepto agregado'} );
+
 }
 
 const cartPatch = (req, res = response) => {
@@ -67,4 +67,5 @@ const cartDelete = (req, res = response) => {
 module.exports = {
     crearCart,
     cartGet,
+    editCart
 }

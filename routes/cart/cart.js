@@ -1,7 +1,7 @@
 
 const { Router } = require('express');
 
-const { crearCart, cartGet } = require('../../controllers/cart');
+const { crearCart, cartGet, editCart } = require('../../controllers/cart');
 
 const router = Router();
 
@@ -9,7 +9,7 @@ const router = Router();
 // ejemplo de rutas usuarios
 router.get('/', cartGet );
 
-// router.put('/:id', usuariosPut );
+router.put('/', editCart );
 
 router.post('/', crearCart );
 
